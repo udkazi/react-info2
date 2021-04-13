@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {fetchPosts} from '../actions';
+import {fetchPosts,deleteMeToo} from '../actions';
 function Table(props) {
 
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter);
+  
   useEffect(() => {
     dispatch(fetchPosts())
   }, [])
 
   const deleteMe = (id) => {
-    console.log('deleted - ID', id);
+    dispatch(deleteMeToo(id))
   }
 
   return (

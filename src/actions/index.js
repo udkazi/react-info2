@@ -25,3 +25,6 @@ export const fetchPosts = () => dispatch => {
   };
 
 
+export const deleteMeToo =(id)=>dispatch=>{
+  console.log('deleted ID is',id);
+}
