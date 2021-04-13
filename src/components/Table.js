@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {fetchPosts} from '../actions';
 function Table(props) {
 
-  const [list, setList] = useState('');
-  
+  const dispatch = useDispatch();
+  const counter = useSelector(state => state.counter);
   useEffect(() => {
-    fetch('https://reqres.in/api/users?page=1')
-      .then(response => response.json())
-      .then(json => setList(json.data))
+    dispatch(fetchPosts())
   }, [])
 
   const deleteMe = (id) => {
@@ -26,9 +25,9 @@ function Table(props) {
           </tr>
         </thead>
 
-        {list.length > 0 &&
+        {counter.items.length > 0 &&
           <tbody>
-            {list.map(ls => (
+            {counter.items.map(ls => (
               <tr key={ls.id}>
                 <th scope="row">{ls.id}</th>
                 <td>{ls.first_name}</td>
@@ -41,7 +40,6 @@ function Table(props) {
       </table>
     </div>
   )
-
 }
 
 export default Table

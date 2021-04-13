@@ -14,12 +14,12 @@ export const decrement = () => {
 
 export const fetchPosts = () => dispatch => {
     console.log('fetchPosts')
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('https://reqres.in/api/users?page=1')
       .then(res => res.json())
       .then(posts =>
         dispatch({
           type: 'FETCH_POSTS',
-          payload: posts
+          payload: posts.data
         })
       );
   };
