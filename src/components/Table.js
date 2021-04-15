@@ -5,7 +5,7 @@ function Table(props) {
 
   const dispatch = useDispatch();
   const counter = useSelector(state => state.counter);
-  
+
   useEffect(() => {
     dispatch(fetchPosts())
   }, [])
@@ -13,6 +13,8 @@ function Table(props) {
   const deleteMe = (id) => {
     dispatch(deleteMeToo(id))
   }
+
+  console.log(counter,"counter")
 
   return (
     <div className="container">
@@ -29,10 +31,10 @@ function Table(props) {
         {counter.items.length > 0 &&
           <tbody>
             {counter.items.map(ls => (
-              <tr key={ls.id}>
-                <th scope="row">{ls.id}</th>
-                <td>{ls.first_name}</td>
-                <td>{ls.email}</td>
+              <tr key={ls._id}>
+                <th scope="row">{ls.colour}</th>
+                <td>{ls.name}</td>
+                <td>{ls.age}</td>
                 <td><a onClick={(e) => deleteMe(ls.id, e)}>Delete</a></td>
               </tr>
             ))}

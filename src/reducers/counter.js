@@ -1,9 +1,7 @@
-
 const initialState = {
     items: [],
     item: {}
-  };
-  
+};
 
 const counterReducer = (state = initialState, action) => {
     console.log(action,"action-2")
@@ -16,6 +14,11 @@ const counterReducer = (state = initialState, action) => {
             return {
                 ...state,
                 items: action.payload
+            };
+        case 'NEW_POST':
+            return {
+                ...state,
+                items: [action.payload, ...state.items]
             };
         default:
             return state;

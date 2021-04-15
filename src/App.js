@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './components/Navbar';
 import Table from './components/Table';
 import { useSelector, useDispatch } from 'react-redux';
-import {increment, decrement,fetchPosts} from './actions';
+import {increment, createPost,fetchPosts} from './actions';
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">      
       <Navbar />
-      <button onClick={() => dispatch(fetchPosts())}>+</button>
+      <button onClick={() => dispatch(createPost())}>+</button>
       <Table />
       
     </div>
