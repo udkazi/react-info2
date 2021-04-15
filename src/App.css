@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+ul{
+  background-color: #7e93bf;
+}
+
+ul li{
+  list-style: none;
+  display: inline-block;
+  margin: 20px;
+  text-decoration: underline;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+}
