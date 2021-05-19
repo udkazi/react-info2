@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {fetchPosts,deletePost} from '../actions';
+import { fetchPosts, deletePost } from '../actions';
 
 function Table(props) {
 

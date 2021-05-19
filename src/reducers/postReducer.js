@@ -4,7 +4,7 @@ const initialState = {
 };
 
 const counterReducer = (state = initialState, action) => {
-    switch (action.type){
+    switch (action.type) {
         case 'FETCH_POSTS':
             return {
                 ...state,
@@ -16,8 +16,8 @@ const counterReducer = (state = initialState, action) => {
                 items: [action.payload, ...state.items]
             };
         case 'DELETE_POST':
-            return{
-                items:[ ...state.items.filter(({id}) => id !== action.payload)]
+            return {
+                items: [...state.items.filter(({ id }) => id !== action.payload)]
 
             }
         default:
