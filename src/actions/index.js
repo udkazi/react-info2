@@ -13,6 +13,7 @@ export const decrement = () => {
 
 
 export const fetchPosts = () => dispatch => {
+
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(res => res.json())
       .then(posts =>
