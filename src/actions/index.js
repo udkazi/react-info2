@@ -1,19 +1,4 @@
-export const increment = () => {
-    console.log('increment')
-    return {
-        type: 'INCREMENT'
-    };
-};
-
-export const decrement = () => {
-    return {
-        type: 'DECREMENT'
-    };
-};
-
-
 export const fetchPosts = () => dispatch => {
-
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(res => res.json())
       .then(posts =>
@@ -23,11 +8,6 @@ export const fetchPosts = () => dispatch => {
         })
       );
   };
-
-
-export const deleteMeToo =(id)=>dispatch=>{
-  console.log('deleted ID is',id);
-}
 
 export const createPost = () => dispatch => {
   console.log('CreatePost')
@@ -49,3 +29,7 @@ export const createPost = () => dispatch => {
       
     );
 };
+
+export const deleteMeToo =(id)=>dispatch=>{
+  console.log('deleted ID is',id);
+}
