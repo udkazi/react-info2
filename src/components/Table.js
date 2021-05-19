@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {fetchPosts,deleteMeToo} from '../actions';
+import {fetchPosts,deletePost} from '../actions';
 
 function Table(props) {
 
@@ -11,10 +11,10 @@ function Table(props) {
     dispatch(fetchPosts())
   }, [])
 
-  const deleteMe = (id) => {
-    dispatch(deleteMeToo(id))
+  const deletePosts = (id) => {
+    dispatch(deletePost(id))
   }
-  
+
   return (
     <div className="container">
       <table className="table">
@@ -32,7 +32,7 @@ function Table(props) {
               <tr key={ls.id}>
                 <th scope="row">{ls.id}</th>
                 <td>{ls.title}</td>
-                <td><a onClick={(e) => deleteMe(ls.id, e)}>Delete</a></td>
+                <td><a onClick={(e) => deletePosts(ls.id, e)}>Delete</a></td>
               </tr>
             ))}
           </tbody>

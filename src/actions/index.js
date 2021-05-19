@@ -10,26 +10,38 @@ export const fetchPosts = () => dispatch => {
   };
 
 export const createPost = () => dispatch => {
-  console.log('CreatePost')
-  let postData = { "name":"ubed Kazi", "age":12, "colour":"blue" }
+  
+  let postData = { "title":"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
+   "body":"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
+   }
 
-  fetch('https://crudcrud.com/api/4dd0696558aa40108266494c71d36aee/unicorns', {
+  fetch('https://jsonplaceholder.typicode.com/posts', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
     },
     body: JSON.stringify(postData)
   })
-    .then(res => res.json())
-    .then(post =>
-      dispatch({
-        type: 'NEW_POST',
-        payload: post
-      })
-      
-    );
+  .then(res => res.json())
+  .then(post =>
+    dispatch({
+      type: 'NEW_POST',
+      payload: post
+    })
+  );
 };
 
-export const deleteMeToo =(id)=>dispatch=>{
+//Delete api will not work because of server issue
+export const deletePost =(id)=>dispatch=>{
   console.log('deleted ID is',id);
+  fetch('https://jsonplaceholder.typicode.com/posts/'+id, {
+    method: 'DELETE'
+  })
+  .then(res => res.json())
+  .then(delete_post =>
+    dispatch({
+      type: 'DELETE_POST',
+      payload: delete_post
+    })
+  );
 }
