@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">      
       <Navbar />
-      <button onClick={() => dispatch(createPost())}>+</button>
+      <a onClick={() => dispatch(createPost())}>Create Post</a>
       <Table />
     </div>
   );
