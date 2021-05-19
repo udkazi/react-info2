@@ -13,8 +13,7 @@ export const decrement = () => {
 
 
 export const fetchPosts = () => dispatch => {
-    console.log('fetchPosts')
-    fetch('https://crudcrud.com/api/4dd0696558aa40108266494c71d36aee/unicorns')
+    fetch('https://jsonplaceholder.typicode.com/posts')
       .then(res => res.json())
       .then(posts =>
         dispatch({
