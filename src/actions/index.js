@@ -10,7 +10,7 @@ export const fetchPosts = () => dispatch => {
   };
 
 export const createPost = () => dispatch => {
-  
+
   let postData = { "title":"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.",
    "body":"Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs."
    }
@@ -34,14 +34,8 @@ export const createPost = () => dispatch => {
 //Delete api will not work because of server issue
 export const deletePost =(id)=>dispatch=>{
   console.log('deleted ID is',id);
-  fetch('https://jsonplaceholder.typicode.com/posts/'+id, {
-    method: 'DELETE'
+  dispatch({
+    type: 'DELETE_POST',
+    payload: id
   })
-  .then(res => res.json())
-  .then(delete_post =>
-    dispatch({
-      type: 'DELETE_POST',
-      payload: delete_post
-    })
-  );
 }

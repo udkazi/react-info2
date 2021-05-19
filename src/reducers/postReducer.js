@@ -15,6 +15,11 @@ const counterReducer = (state = initialState, action) => {
                 ...state,
                 items: [action.payload, ...state.items]
             };
+        case 'DELETE_POST':
+            return{
+                items:[ ...state.items.filter(({id}) => id !== action.payload)]
+
+            }
         default:
             return state;
     }
