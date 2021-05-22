@@ -1,5 +1,6 @@
 import React, { useEffect,useState,useContext } from 'react';
 import {ThingsContextApi} from '../context-api/ThingsContextApi';
+import Child from './Child';
 
 function List() {
 
@@ -9,6 +10,8 @@ function List() {
     return (
         <div>
             <p>List here...</p>
+
+            <Child />
         </div>
     )
 }
